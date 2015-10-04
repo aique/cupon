@@ -1,0 +1,61 @@
+{% extends '::frontend.html.twig' %}
+
+{% block article %}
+
+    {% if oferta %}
+
+        <section>
+            <h1><a href="#">{{ oferta.nombre }}</a></h1>
+            <p>{{ oferta.descripcion }}</p>
+            <p>{{ oferta.precio }} &euro; <span>{{ oferta.descuento }}</span></p>
+            <p><strong>Condiciones:</strong> {{ oferta.condiciones }}</p>
+            <a href="#">Comprar</a>
+        </section>
+
+        <section>
+
+            <div>
+                <strong>Faltan:</strong> {{ oferta.fechaExpiracion | date() }}
+            </div>
+
+            <div>
+                <strong>Compras:</strong> {{ oferta.compras }}
+            </div>
+
+            <div>
+                {% set faltan = oferta.umbral - oferta.compras %}
+                {% if faltan > 0 %}
+                    Faltan <strong>{{ faltan }} compras</strong> para activar la oferta
+                {% else %}
+                    <strong>Oferta activada</strong> por superar las <strong>{{ oferta.umbral }}</strong> compras necesarias
+                {% endif %}
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2>Disfruta de la oferta en</h2>
+
+            <p>
+                <a href="#">{{ oferta.tienda.nombre }}</a>
+                <p>{{ oferta.tienda.direccion }}</p>
+            </p>
+
+        </section>
+
+        <section>
+
+            <h2>Sobre la tienda</h2>
+
+            <p>{{ oferta.tienda.descripcion }}</p>
+
+        </section>
+
+    {% else %}
+
+        <p>No se ha encontrado ninguna oferta para hoy</p>
+
+    {% endif %}
+
+{% endblock %}

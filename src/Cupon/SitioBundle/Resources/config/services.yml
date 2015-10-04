@@ -1,0 +1,4 @@
+services:
+#    sitio.example:
+#        class: Cupon\SitioBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

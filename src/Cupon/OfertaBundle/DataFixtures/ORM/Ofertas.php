@@ -38,7 +38,16 @@ class Ofertas extends AbstractFixture implements OrderedFixtureInterface
             $oferta->setCondiciones("Condiciones de la oferta " . $i);
             $oferta->setFechaPublicacion(new \DateTime(date('Y-m-d H:i:s')));
             $oferta->setFechaExpiracion(new \DateTime(date('Y-m-d H:i:s', strtotime('+1 years'))));
-            $oferta->setCiudad($manager->find('CiudadBundle:Ciudad', 1));
+
+            if($i % 2)
+            {
+                $oferta->setCiudad($manager->find('CiudadBundle:Ciudad', 1));
+            }
+            else
+            {
+                $oferta->setCiudad($manager->find('CiudadBundle:Ciudad', 2));
+            }
+
             $oferta->setTienda($manager->find('TiendaBundle:Tienda', 1));
             $oferta->setRutaFoto(null);
             $oferta->setPrecio(19.99);

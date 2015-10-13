@@ -1,3 +1,5 @@
+{% extends '::base.html.twig' %}
+
 {% block body %}
 
 <header>
@@ -6,9 +8,13 @@
 
     <nav>
         <ul>
+
             <li><a href="{{ path('portada', {'ciudad': ciudad}) }}">Oferta del día</a></li>
             <li><a href="#">Ofertas recientes</a></li>
             <li><a href="#">Mis ofertas</a></li>
+
+            <li>{{ render(controller('CiudadBundle:Default:listaCiudades', {'ciudad': ciudad})) }}</li>
+
         </ul>
     </nav>
 
@@ -17,6 +23,7 @@
 <article>
 
     {% block article %}{% endblock %}
+
 </article>
 
 <aside>

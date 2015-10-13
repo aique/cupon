@@ -1,0 +1,28 @@
+<section>
+    <h1><a href="{{ path('oferta_detalle', {'ciudad': ciudad, 'slug': oferta.slug}) }}">{{ oferta.nombre }}</a></h1>
+    {{ oferta.descripcion | mostrar_como_lista }}
+    <p>{{ oferta.precio }} &euro; <span>{{ descuento(oferta.precio, oferta.descuento) }}</span></p>
+    <p><strong>Condiciones:</strong> {{ oferta.condiciones }}</p>
+    <a href="#">Comprar</a>
+</section>
+
+<section>
+
+    <div>
+        <strong>Faltan:</strong> {{ oferta.fechaExpiracion | date() }}
+    </div>
+
+    <div>
+        <strong>Compras:</strong> {{ oferta.compras }}
+    </div>
+
+    <div>
+        {% set faltan = oferta.umbral - oferta.compras %}
+        {% if faltan > 0 %}
+            Faltan <strong>{{ faltan }} compras</strong> para activar la oferta
+        {% else %}
+            <strong>Oferta activada</strong> por superar las <strong>{{ oferta.umbral }}</strong> compras necesarias
+        {% endif %}
+    </div>
+
+</section>

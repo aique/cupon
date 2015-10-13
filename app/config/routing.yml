@@ -17,17 +17,3 @@ ciudad:
 oferta:
     resource: "@OfertaBundle/Resources/config/routing.yml"
     prefix:   /
-
-pagina_estatica:
-    path: /sitio/{pagina}/
-    defaults: {_controller: SitioBundle:Default:estatica}
-
-portada:
-    path: /{ciudad}
-    defaults: {_controller: SitioBundle:Default:portada}
-
-#definición de una redirección
-
-_portada:
-    path: /
-    defaults: {_controller: FrameworkBundle:Redirect:redirect, route: portada, ciudad: '%cupon.ciudad_por_defecto%'}

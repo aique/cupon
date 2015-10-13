@@ -1,0 +1,28 @@
+<select id="ciudad-seleccionada">
+
+    {% for ciudad in ciudades %}
+
+        {% if(ciudad.slug == ciudadActual) %}
+
+            <option selected="selected" data-url="{{ url('ciudad_cambiar', {'ciudad': ciudad.slug}) }}" value="{{ ciudad.slug }}">{{ ciudad.nombre }}</option>
+
+        {% else %}
+
+            <option data-url="{{ url('ciudad_cambiar', {'ciudad': ciudad.slug}) }}" value="{{ ciudad.slug }}">{{ ciudad.nombre }}</option>
+
+        {% endif %}
+
+    {% endfor %}
+
+</select>
+
+<script type="text/javascript">
+
+    var lista = $('#ciudad-seleccionada');
+
+    lista.on('change', function(ev)
+    {
+        window.location = $(this).find('option:selected').data('url');
+    });
+
+</script>

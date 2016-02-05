@@ -6,7 +6,13 @@
 
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {% block stylesheets %}
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sitio/css/main.css') }}" />
+
+        {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

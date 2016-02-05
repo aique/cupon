@@ -1,0 +1,85 @@
+header h1
+{
+    padding: 10px 0 10px 10px;
+
+    background-color: #999999;
+}
+
+header h1 a
+{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+header nav ul
+{
+    padding-left: 0;
+
+    list-style-type: none;
+}
+
+header nav li
+{
+    display: inline-block;
+}
+
+header nav li a
+{
+    text-decoration: none;
+}
+
+body article
+{
+    display: inline-block;
+    width: 70%;
+}
+
+body article a,
+footer a
+{
+    text-decoration: none;
+
+    color: cornflowerblue;
+}
+
+body article a:hover,
+footer a:hover
+{
+    text-decoration: underline;
+}
+
+body aside
+{
+    float: right;
+    width: 30%;
+    vertical-align: top;
+}
+
+footer
+{
+    margin-top: 10px;
+    padding-top: 10px;
+
+    border-top: 1px solid #999;
+}
+
+.menu-option
+{
+    color: #333333;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    margin-right: 25px;
+}
+
+.menu-option:hover
+{
+    text-decoration: underline;
+}
+
+#menu-pais
+{
+    float: right;
+}

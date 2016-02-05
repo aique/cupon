@@ -4,16 +4,16 @@
 
 <header>
 
-    <h1>CUPON</h1>
+    <h1><a href="{{ path('portada', {'ciudad': ciudad}) }}">CUPON</a></h1>
 
     <nav>
         <ul>
 
-            <li><a href="{{ path('portada', {'ciudad': ciudad}) }}">Oferta del día</a></li>
-            <li><a href="#">Ofertas recientes</a></li>
-            <li><a href="#">Mis ofertas</a></li>
+            <li><a class="menu-option" href="{{ path('portada', {'ciudad': ciudad}) }}">Oferta del día</a></li>
+            <li><a class="menu-option" href="#">Ofertas recientes</a></li>
+            <li><a class="menu-option" href="#">Mis ofertas</a></li>
 
-            <li>{{ render(controller('CiudadBundle:Default:listaCiudades', {'ciudad': ciudad})) }}</li>
+            <li id="menu-pais">{{ render(controller('CiudadBundle:Default:listaCiudades', {'ciudad': ciudad})) }}</li>
 
         </ul>
     </nav>

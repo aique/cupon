@@ -67,4 +67,25 @@ class OfertaRepository extends EntityRepository
 
         return $consulta->getResult();
     }
+
+    public function findUltimasOfertasPublicadas($tiendaId, $limite = 10)
+    {
+        $em = $this->getEntityManager();
+
+        $dql = 'SELECT o, t
+                FROM OfertaBundle:Oferta o
+                JOIN o.tienda t
+                WHERE o.revisada = true
+                AND o.fecha_publicacion < :fecha
+                AND o.tienda = :id
+                ORDER BY o.fecha_publicacion DESC';
+
+        $consulta = $em->createQuery($dql);
+
+        $consulta->setMaxResults($limite);
+        $consulta->setParameter('fecha', new \DateTime());
+        $consulta->setParameter('id', $tiendaId);
+
+        return $consulta->getResult();
+    }
 }

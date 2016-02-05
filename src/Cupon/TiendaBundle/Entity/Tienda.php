@@ -6,7 +6,7 @@ use Cupon\SitioBundle\Util\Util;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Cupon\TiendaBundle\Entity\TiendaRepository")
  * @ORM\Table(name="sf_tienda")
  */
 class Tienda
